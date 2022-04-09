@@ -7,10 +7,14 @@ be softer in order to protect developers' eyes.
 #+end_quote
 
 This is a port of [[https://github.com/sainnhe/gruvbox-material][Gruvbox Material]] to be used in Doom Emacs. As the original,
-it has three palettes: material, mix and original; additionally, it has three
-background contrast options: soft, medium and hard. Since the colorscheme comes
-in two variants: light and dark, this project provides a total of 18 possible
-configurations.
+it has three palettes:
++ material :: : Carefully designed to have a soft contrast
++ mix :: Color palette obtained by calculating the mean of the other two
++ original :: The color palette used in the original gruvbox
+
+additionally, it has three background contrast options: soft, medium and hard.
+Since the colorscheme comes in two variants: light and dark, this project
+provides a total of 18 possible configurations.
 
 * Installation
 Copy the =doom-gruvbox-material-theme.el=,
