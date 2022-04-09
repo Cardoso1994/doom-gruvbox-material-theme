@@ -47,8 +47,8 @@ depending on the time of the day:
     (run-at-time (format "%02d:%02d" (+ hour 1) 0) nil
                  #'mac/timed-theme morning-theme night-theme)))
 
-(mac/timed-theme 'doom-gruvbox-material
-                 'doom-gruvbox-material-light)
+(mac/timed-theme 'doom-gruvbox-material-light
+                 'doom-gruvbox-material)
 #+end_src
 * Screenshots
 *All screenshots present the three color palettes with a medium contrast*
