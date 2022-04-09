@@ -1,0 +1,98 @@
+#+TITLE: Doom-gruvbox-material
+
+* Introduction
+#+begin_quote
+Gruvbox Material is a modified version of Gruvbox, the contrast is adjusted to
+be softer in order to protect developers' eyes.
+#+end_quote
+
+This is a port of [[https://github.com/sainnhe/gruvbox-material][Gruvbox Material]] to be used in Doom Emacs. As the original,
+it has three palettes: material, mix and original; additionally, it has three
+background contrast options: soft, medium and hard. Since the colorscheme comes
+in two variants: light and dark, this project provides a total of 18 possible
+configurations.
+
+* Installation
+Copy the =doom-gruvbox-material-theme.el=,
+=doom-gruvbox-material-light-theme.el= into your =$HOME/.doom.d/themes=
+directory. Add the following lines to your =~/.doom.d/config.el=:
+#+begin_src elisp
+;; `gruvbox-material' contrast and palette options
+(setq doom-gruvbox-material-background  "medium"  ; or hard (defaults to soft)
+     doom-gruvbox-material-palette     "mix") ; or original (defaults to material)
+
+;; `gruvbox-material-light' contrast and palette options
+(setq doom-gruvbox-material-light-background  "medium" ; or hard (defaults to soft)
+      doom-gruvbox-material-light-palette     "mix") ; or original (defaults to material)
+
+;; set `doom-theme'
+(setq doom-theme 'doom-gruvbox-material) ; dark variant
+(setq doom-theme 'doom-gruvbox-material-light) ; light variant
+#+end_src
+
+Additionally, I have this function to automatically change the colorscheme
+depending on the time of the day:
+#+begin_src elisp
+(defun mac/timed-theme (&optional morning-theme night-theme)
+  "Change doom-theme depending on time of the day. Runs every hour."
+  (let* ((morning-theme (or morning-theme 'doom-solarized-light))
+         (night-theme (or night-theme 'doom-solarized-dark))
+         (hour (nth 2 (decode-time (current-time))))
+         (theme (cond ((<= 7 hour 17)   morning-theme)
+                      (t                night-theme))))
+    (unless (equal doom-theme theme)
+      (setq doom-theme theme)
+      (load-theme doom-theme t))
+    ;; run every hour
+    (run-at-time (format "%02d:%02d" (+ hour 1) 0) nil
+                 #'mac/timed-theme morning-theme night-theme)))
+
+(mac/timed-theme 'doom-gruvbox-material
+                 'doom-gruvbox-material-light)
+#+end_src
+* Screenshots
+*All screenshots present the three color palettes with a medium contrast*
+** Dark
+*** Material
+**** Elisp
+[[./img/dark/material_elisp.png]]
+**** Python
+[[./img/dark/material_python.png]]
+**** Org-mode
+[[./img/dark/material_org.png]]
+*** Mix
+**** Elisp
+[[./img/dark/mix_elisp.png]]
+**** Python
+[[./img/dark/mix_python.png]]
+**** Org-mode
+[[./img/dark/mix_org.png]]
+*** Original
+**** Elisp
+[[./img/dark/original_elisp.png]]
+**** Python
+[[./img/dark/original_python.png]]
+**** Org-mode
+[[./img/dark/original_org.png]]
+** Light
+*** Material
+**** Elisp
+[[./img/light/material_elisp.png]]
+**** Python
+[[./img/light/material_python.png]]
+**** Org-mode
+[[./img/light/material_org.png]]
+*** Mix
+**** Elisp
+[[./img/light/mix_elisp.png]]
+**** Python
+[[./img/light/mix_python.png]]
+**** Org-mode
+[[./img/light/mix_org.png]]
+*** Original
+**** Elisp
+[[./img/light/original_elisp.png]]
+**** Python
+[[./img/light/original_python.png]]
+**** Org-mode
+[[./img/light/original_org.png]]
