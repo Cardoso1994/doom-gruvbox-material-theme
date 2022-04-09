@@ -1,4 +1,4 @@
-#+TITLE: Doom-gruvbox-material
+#+TITLE: doom-gruvbox-material
 
 * Introduction
 #+begin_quote
