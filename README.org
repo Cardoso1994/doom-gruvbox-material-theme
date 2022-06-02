@@ -8,7 +8,7 @@ be softer in order to protect developers' eyes.
 
 This is a port of [[https://github.com/sainnhe/gruvbox-material][Gruvbox Material]] to be used in Doom Emacs. As the original,
 it has three palettes:
-+ material :: : Carefully designed to have a soft contrast
++ material :: Carefully designed to have a soft contrast
 + mix :: Color palette obtained by calculating the mean of the other two
 + original :: The color palette used in the original gruvbox
 
@@ -17,8 +17,8 @@ Since the colorscheme comes in two variants: light and dark, this project
 provides a total of 18 possible configurations.
 
 * Installation
-Copy the =doom-gruvbox-material-theme.el=,
-=doom-gruvbox-material-light-theme.el= into your =$HOME/.doom.d/themes=
+Copy the =doom-gruvbox-material-theme.el= and
+=doom-gruvbox-material-light-theme.el= files into your =$HOME/.doom.d/themes=
 directory. Add the following lines to your =~/.doom.d/config.el=:
 #+begin_src elisp
 ;; `gruvbox-material' contrast and palette options
@@ -100,3 +100,27 @@ depending on the time of the day:
 [[./img/light/original_python.png]]
 **** Org-mode
 [[./img/light/original_org.png]]
+* Your own configuration
+Doom allows for extra configuration, which can be achieved by using the
+=custom-theme-set-faces!= function. This will give you the ability to customize
+this color palette to any way you choose, for example:
+#+begin_src elisp
+(custom-theme-set-faces! '(doom-gruvbox-material doom-gruvbox-material-light)
+  `(fill-column-indicator :foreground ,(doom-color 'bg-alt)
+                          :background ,(doom-color 'bg-alt))
+  `(font-lock-comment-face :foreground ,(doom-darken (doom-color 'teal) 0.2))
+  `(org-document-info-keyword :foreground ,(doom-darken
+                                            (doom-color 'green) 0.3))
+  `(org-drawer :foreground ,(doom-darken (doom-color 'yellow) 0.25))
+  `(org-link :foreground ,(doom-color 'teal) :underline t)
+  `(show-paren-match :foreground ,(doom-color 'fg)
+                     :background ,(doom-darken (doom-color 'orange) 0.5))
+  `(org-block-begin-line :foreground ,(doom-color 'fg-alt)
+                         :background ,(doom-color 'bg-alt))
+  `(org-level-1 :foreground ,(doom-color 'violet) :weight bold :height 1.6)
+  `(org-level-2 :foreground ,(doom-color 'orange) :weight bold :height 1.4)
+  `(org-level-3 :foreground ,(doom-color 'magenta):weight bold  :height 1.2)
+  `(org-level-4 :foreground ,(doom-color 'teal) :weight bold :height 1.1))
+#+end_src
+
+for more examples, you can always check the documentation ;).
