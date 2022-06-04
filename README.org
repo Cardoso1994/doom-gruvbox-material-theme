@@ -8,7 +8,7 @@ be softer in order to protect developers' eyes.
 
 This is a port of [[https://github.com/sainnhe/gruvbox-material][Gruvbox Material]] to be used in Doom Emacs. As the original,
 it has three palettes:
-+ material :: : Carefully designed to have a soft contrast
++ material :: Carefully designed to have a soft contrast
 + mix :: Color palette obtained by calculating the mean of the other two
 + original :: The color palette used in the original gruvbox
 
