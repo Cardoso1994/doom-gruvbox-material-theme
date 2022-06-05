@@ -270,7 +270,7 @@ Defaults to \"material\""
    (css-selector             :foreground blue)
 
    ;; LaTeX-mode
-   (font-latex-math-face :foreground dark-green)
+   (font-latex-math-face :foreground (doom-darken dark-green 0.2))
    (font-latex-script-char-face :foreground dark-blue)
 
    ;; markdown-mode
