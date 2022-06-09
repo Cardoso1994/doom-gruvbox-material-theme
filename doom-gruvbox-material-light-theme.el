@@ -270,7 +270,7 @@ Defaults to \"material\""
    (css-selector             :foreground blue)
 
    ;; LaTeX-mode
-   (font-latex-math-face :foreground dark-green)
+   (font-latex-math-face :foreground (doom-darken dark-green 0.2))
    (font-latex-script-char-face :foreground dark-blue)
 
    ;; markdown-mode
@@ -291,9 +291,9 @@ Defaults to \"material\""
    (org-block :foreground fg :background bg-alt)
    (org-meta-line :foreground dark-cyan)
    (org-drawer :foreground dark-yellow)
-   (org-level-1 :foreground magenta :weight 'semi-bold)
-   (org-level-2 :foreground cyan :weight 'semi-bold)
-   (org-level-3 :foreground green :weight 'semi-bold)
+   (org-level-1 :foreground magenta :weight 'semi-bold :height 1.4)
+   (org-level-2 :foreground cyan :weight 'semi-bold :height 1.2)
+   (org-level-3 :foreground green :weight 'semi-bold :height 1.1)
    (org-level-4 :foreground yellow :weight 'semi-bold)
    (org-level-5 :foreground violet :weight 'semi-bold)
    (org-level-6 :foreground dark-cyan :weight 'semi-bold)
