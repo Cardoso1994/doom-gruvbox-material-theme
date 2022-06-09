@@ -308,7 +308,7 @@ Defaults to \"material\""
    (ivy-minibuffer-match-face-2 :foreground blue :background bg)
 
    ;; rainbow
-   (rainbow-delimiters-depth-1-face :foreground dark-orange)
+   (rainbow-delimiters-depth-1-face :foreground (doom-lighten orange 0.2))
    (rainbow-delimiters-depth-2-face :foreground violet)
    (rainbow-delimiters-depth-3-face :foreground dark-cyan)
    (rainbow-delimiters-depth-4-face :foreground dark-yellow)
