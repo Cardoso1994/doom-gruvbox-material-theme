@@ -183,7 +183,7 @@ Defaults to \"material\""
    (builtin        magenta)
    (comments       (if doom-gruvbox-material-light-brighter-comments dark-cyan base8))
    (doc-comments   (doom-darken (if doom-gruvbox-material-light-brighter-comments green green) 0.15))
-   (constants      violet)
+   (constants      magenta)
    (functions      cyan)
    (keywords       red)
    (methods        cyan)
