@@ -327,6 +327,13 @@ Defaults to \"material\""
    (selection :foreground bg-alt :background dark-orange)
    (company-tooltip-common-selection :foreground bg-alt :background dark-blue)
 
+   ;; lsp
+   (lsp-face-highlight-read :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
+   (lsp-face-highlight-textual :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
+   (lsp-face-highlight-write :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
    )
 
 

@@ -321,7 +321,16 @@ Defaults to \"material\""
    (isearch :foreground fg :background violet)
 
    ;; column indicator
-   (fill-column-indicator :foreground bg-alt :background bg-alt))
+   (fill-column-indicator :foreground bg-alt :background bg-alt)
+
+  ;; lsp
+  (lsp-face-highlight-read :foreground fg-alt
+                           :background (doom-darken blue 0.6))
+  (lsp-face-highlight-textual :foreground fg-alt
+                           :background (doom-darken blue 0.6))
+  (lsp-face-highlight-write :foreground fg-alt
+                           :background (doom-darken blue 0.6))
+  )
   ;; --- extra variables ---------------------
   ()
   )
