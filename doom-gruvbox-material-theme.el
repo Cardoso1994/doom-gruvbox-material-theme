@@ -122,7 +122,7 @@ Defaults to \"material\""
         gm/dark-cyan    "#72966c"))     ;; dimAqua
  (t
   (setq gm/fg           "#d4be98"       ;; fg
-        gm/fg-alt       "#c5b18d"       ;; fg1
+        gm/fg-alt       "#ddc7a1"       ;; fg1
         gm/red          "#ea6962"
         gm/dark-red     "#b85651"       ;; dimRed
         gm/orange       "#e78a4e"
