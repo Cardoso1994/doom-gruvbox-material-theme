@@ -263,19 +263,44 @@ Defaults to \"material\""
    (ivy-current-match :background blue :distant-foreground base0 :weight 'bold)
 
    ;; --- major-mode faces -------------------
+   ;; column indicator
+   (fill-column-indicator :foreground bg-alt :background bg-alt)
+
    ;; css-mode / scss-mode
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
    (css-selector             :foreground blue)
 
+   ;; eshell
+   (+eshell-prompt-git-branch :foreground cyan)
+
+   ;; evil
+   (evil-ex-lazy-highlight :foreground bg :background yellow)
+   (evil-snipe-first-match-face :foreground bg :background orange)
+
+   ;; ivy
+   (ivy-current-match :foreground blue :background bg)
+   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
+
    ;; LaTeX-mode
    (font-latex-math-face :foreground dark-green)
    (font-latex-script-char-face :foreground dark-blue)
+
+   ;; lsp
+   (lsp-face-highlight-read :foreground fg-alt
+                            :background (doom-darken blue 0.6))
+   (lsp-face-highlight-textual :foreground fg-alt
+                               :background (doom-darken blue 0.6))
+   (lsp-face-highlight-write :foreground fg-alt
+                             :background (doom-darken blue 0.6))
 
    ;; markdown-mode
    (markdown-markup-face :foreground base5)
    (markdown-header-face :inherit 'bold :foreground red)
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
+
+   ;; magit
+   (magit-section-heading :foreground blue :weight 'bold)
 
    ;; org-mode
    (org-hide :foreground hidden)
@@ -299,13 +324,6 @@ Defaults to \"material\""
    (org-level-7 :foreground dark-green :weight 'semi-bold)
    (org-level-8 :foreground dark-yellow :weight 'semi-bold)
 
-   ;; magit
-   (magit-section-heading :foreground blue :weight 'bold)
-
-   ;; ivy
-   (ivy-current-match :foreground blue :background bg)
-   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
-
    ;; rainbow and parenthesis
    (rainbow-delimiters-depth-1-face :foreground dark-orange)
    (rainbow-delimiters-depth-2-face :foreground violet)
@@ -314,22 +332,10 @@ Defaults to \"material\""
    (rainbow-delimiters-unmatched-face: :foreground fg :background 'nil)
    (show-paren-match :foreground bg :background dark-red)
 
-   ;; evil
-   (evil-ex-lazy-highlight :foreground fg :background violet)
-
    ;; others
-   (isearch :foreground fg :background violet)
-
-   ;; column indicator
-   (fill-column-indicator :foreground bg-alt :background bg-alt)
-
-   ;; lsp
-   (lsp-face-highlight-read :foreground fg-alt
-                            :background (doom-darken blue 0.6))
-   (lsp-face-highlight-textual :foreground fg-alt
-                               :background (doom-darken blue 0.6))
-   (lsp-face-highlight-write :foreground fg-alt
-                             :background (doom-darken blue 0.6))
+   (isearch :foreground bg :background violet)
+   (selection :foreground bg-alt :background dark-orange)
+   (company-tooltip-common-selection :foreground bg-alt :background dark-blue)
   )
   ;; --- extra variables ---------------------
   ()
