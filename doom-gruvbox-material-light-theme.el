@@ -31,18 +31,18 @@ determine the exact padding."
 (defcustom doom-gruvbox-material-light-background nil
   "Choice between \"soft\", \"medium\" and \"hard\" background contrast.
 Defaults to \"soft\""
-  :group 'doom-gruvbox-material-theme
+  :group 'doom-gruvbox-material-light-theme
   :type 'string)
 
 (defcustom doom-gruvbox-material-light-palette nil
   "Choice between \"material\", \"mix\" and \"original\" color palette.
 Defaults to \"material\""
-  :group 'doom-gruvbox-material-theme
+  :group 'doom-gruvbox-material-light-theme
   :type 'string)
 
 (defcustom doom-gruvbox-material-light-dired-height 1.15
   "Font height for dired buffers"
-  :group 'doom-gruvbox-material-theme
+  :group 'doom-gruvbox-material-light-theme
   :type 'float)
 ;; colors from
 ;; https://github.com/sainnhe/gruvbox-material-vscode/tree/master/src/palette
@@ -269,7 +269,6 @@ Defaults to \"material\""
    ;; (ivy-current-match :foreground blue :background bg)
    (ivy-minibuffer-match-face-2 :foreground blue :background bg)
 
-
    ;; --- major-mode faces -------------------
    ;; column indicator
    (fill-column-indicator :foreground bg-alt :background bg-alt)
@@ -296,12 +295,13 @@ Defaults to \"material\""
                     :foreground red :background (doom-lighten red 0.55))
    (diredfl-symlink :height doom-gruvbox-material-light-dired-height
                     :foreground magenta)
-   ;; evil
-   (evil-ex-lazy-highlight :foreground fg :background violet)
-   (evil-snipe-first-match-face :foreground bg :background orange)
 
    ;; eshell
    (+eshell-prompt-git-branch :foreground cyan)
+
+   ;; evil
+   (evil-ex-lazy-highlight :foreground fg :background violet)
+   (evil-snipe-first-match-face :foreground bg :background orange)
 
    ;; LaTeX-mode
    (font-latex-math-face :foreground (doom-darken dark-green 0.2))
