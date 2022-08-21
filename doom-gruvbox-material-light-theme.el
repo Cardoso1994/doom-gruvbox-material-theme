@@ -147,37 +147,37 @@ Defaults to \"material\""
 (def-doom-theme doom-gruvbox-material-light
   "Gruvbox material light variant"
   ;; name       default                 256       16
-  ((bg          `(,gm/bg                nil       nil            ))
-   (bg-alt      `(,gm/bg-alt            nil       nil            ))
-   (base0       `(,gm/base0             "black"   "black"        ))
-   (base1       `(,gm/base1             "#1e1e1e" "brightblack"  ))
-   (base2       `(,gm/base2             "#2e2e2e" "brightblack"  ))
+  ((bg          `(,gm/bg                "#ffffd7"       nil            ))
+   (bg-alt      `(,gm/bg-alt            "#ffffd7"       nil            ))
+   (base0       `(,gm/base0             "#f0f0f0"   "white"        ))
+   (base1       `(,gm/base1             "#ffffff" "brightblack"  ))
+   (base2       `(,gm/base2             "#d7d6af" "brightblack"  ))
    (base3       `(,gm/base3             "#262626" "brightblack"  ))
    (base4       `(,gm/base4             "#3f3f3f" "brightblack"  ))
    (base5       `(,gm/base5             "#525252" "brightblack"  ))
    (base6       `(,gm/base6             "#6b6b6b" "brightblack"  ))
    (base7       `(,gm/base7             "#979797" "brightblack"  ))
-   (base8       `(,gm/base8             "#dfdfdf" "white"        ))
-   (fg          `(,gm/fg                "#bfbfbf" "brightwhite"  ))
-   (fg-alt      `(,gm/fg-alt            "#2d2d2d" "white"        ))
+   (base8       `(,gm/base8             "#8a8a8a" "white"        ))
+   (fg          `(,gm/fg                "#875f00" "brightblack"  ))
+   (fg-alt      `(,gm/fg-alt            "#1c1c1c" "black"        ))
 
    (grey        base8)
-   (red         `(,gm/red               "#ff6655" "red"          ))
-   (dark-red    `(,gm/dark-red          "#ff6655" "red"          ))
-   (orange      `(,gm/orange            "#dd8844" "brightred"    ))
-   (dark-orange `(,gm/dark-orange       "#dd8844" "brightred"    ))
-   (green       `(,gm/green             "#99bb66" "green"        ))
-   (dark-green  `(,gm/dark-green        "#99bb66" "green"        ))
-   (teal        `(,gm/teal              "#44b9b1" "brightgreen"  ))
-   (dark-teal   `(,gm/dark-teal         "#44b9b1" "brightgreen"  ))
-   (yellow      `(,gm/yellow            "#ECBE7B" "yellow"       ))
-   (dark-yellow `(,gm/dark-yellow       "#ECBE7B" "yellow"       ))
-   (blue        `(,gm/blue              "#51afef" "brightblue"   ))
-   (dark-blue   `(,gm/dark-blue         "#2257A0" "blue"         ))
-   (magenta     `(,gm/magenta           "#c678dd" "brightmagenta"))
-   (violet      `(,gm/violet            "#a9a1e1" "magenta"      ))
-   (cyan        `(,gm/cyan              "#46D9FF" "brightcyan"   ))
-   (dark-cyan   `(,gm/dark-cyan         "#5699AF" "cyan"         ))
+   (red         `(,gm/red               "#d70000" "red"          ))
+   (dark-red    `(,gm/dark-red          "#af0000" "red"          ))
+   (orange      `(,gm/orange            "#d75f00" "brightred"    ))
+   (dark-orange `(,gm/dark-orange       "#d75f00" "brightred"    ))
+   (green       `(,gm/green             "#878700" "green"        ))
+   (dark-green  `(,gm/dark-green        "#878700" "green"        ))
+   (teal        `(,gm/teal              "#00875f" "brightgreen"  ))
+   (dark-teal   `(,gm/dark-teal         "#00875f" "brightgreen"  ))
+   (yellow      `(,gm/yellow            "#af5f00" "yellow"       ))
+   (dark-yellow `(,gm/dark-yellow       "#af5f00" "yellow"       ))
+   (blue        `(,gm/blue              "#005f5f" "brightblue"   ))
+   (dark-blue   `(,gm/dark-blue         "#005f5f" "blue"         ))
+   (magenta     `(,gm/magenta           "#87005f" "brightmagenta"))
+   (violet      `(,gm/violet            "#87005f" "magenta"      ))
+   (cyan        `(,gm/cyan              "#00875f" "brightcyan"   ))
+   (dark-cyan   `(,gm/dark-cyan         "#00875f" "cyan"         ))
 
    ;; face categories -- required for all themes
    (highlight       blue)
@@ -187,7 +187,7 @@ Defaults to \"material\""
    (builtin        magenta)
    (comments       (if doom-gruvbox-material-light-brighter-comments dark-cyan base8))
    (doc-comments   (doom-darken (if doom-gruvbox-material-light-brighter-comments green green) 0.15))
-   (constants      violet)
+   (constants      magenta)
    (functions      cyan)
    (keywords       red)
    (methods        cyan)
@@ -271,6 +271,9 @@ Defaults to \"material\""
 
 
    ;; --- major-mode faces -------------------
+   ;; column indicator
+   (fill-column-indicator :foreground bg-alt :background bg-alt)
+
    ;; css-mode / scss-mode
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
@@ -297,9 +300,20 @@ Defaults to \"material\""
    (evil-ex-lazy-highlight :foreground fg :background violet)
    (evil-snipe-first-match-face :foreground bg :background orange)
 
+   ;; eshell
+   (+eshell-prompt-git-branch :foreground cyan)
+
    ;; LaTeX-mode
-   (font-latex-math-face :foreground dark-green)
+   (font-latex-math-face :foreground (doom-darken dark-green 0.2))
    (font-latex-script-char-face :foreground dark-blue)
+
+   ;; lsp
+   (lsp-face-highlight-read :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
+   (lsp-face-highlight-textual :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
+   (lsp-face-highlight-write :foreground fg-alt
+                           :background (doom-lighten dark-blue 0.3))
 
    ;; magit
    (magit-section-heading :foreground blue :weight 'bold)
@@ -322,9 +336,9 @@ Defaults to \"material\""
    (org-block :foreground fg :background bg-alt)
    (org-meta-line :foreground dark-cyan)
    (org-drawer :foreground dark-yellow)
-   (org-level-1 :foreground magenta :weight 'semi-bold)
-   (org-level-2 :foreground cyan :weight 'semi-bold)
-   (org-level-3 :foreground green :weight 'semi-bold)
+   (org-level-1 :foreground magenta :weight 'semi-bold :height 1.4)
+   (org-level-2 :foreground cyan :weight 'semi-bold :height 1.2)
+   (org-level-3 :foreground green :weight 'semi-bold :height 1.1)
    (org-level-4 :foreground yellow :weight 'semi-bold)
    (org-level-5 :foreground violet :weight 'semi-bold)
    (org-level-6 :foreground dark-cyan :weight 'semi-bold)
@@ -332,7 +346,7 @@ Defaults to \"material\""
    (org-level-8 :foreground dark-yellow :weight 'semi-bold)
 
    ;; rainbow
-   (rainbow-delimiters-depth-1-face :foreground dark-orange)
+   (rainbow-delimiters-depth-1-face :foreground (doom-lighten orange 0.2))
    (rainbow-delimiters-depth-2-face :foreground violet)
    (rainbow-delimiters-depth-3-face :foreground dark-cyan)
    (rainbow-delimiters-depth-4-face :foreground dark-yellow)
@@ -340,10 +354,7 @@ Defaults to \"material\""
    (show-paren-match :foreground bg :background dark-red)
 
    ;; others
-   (isearch :foreground fg :background violet)
-
-   ;; other faces and indicators
-   (fill-column-indicator :foreground bg-alt :background bg-alt)
+   (isearch :foreground bg :background violet)
    (selection :foreground bg-alt :background dark-orange)
    (company-tooltip-common-selection :foreground bg-alt :background dark-blue)
 

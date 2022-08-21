@@ -122,7 +122,7 @@ Defaults to \"material\""
         gm/dark-cyan    "#72966c"))     ;; dimAqua
  (t
   (setq gm/fg           "#d4be98"       ;; fg
-        gm/fg-alt       "#c5b18d"       ;; fg1
+        gm/fg-alt       "#ddc7a1"       ;; fg1
         gm/red          "#ea6962"
         gm/dark-red     "#b85651"       ;; dimRed
         gm/orange       "#e78a4e"
@@ -143,37 +143,37 @@ Defaults to \"material\""
 (def-doom-theme doom-gruvbox-material
   "A dark theme inspired by gruvbox material"
   ;; name       default                 256       16
-  ((bg          `(,gm/bg                nil       nil            ))
-   (bg-alt      `(,gm/bg-alt            nil       nil            ))
+  ((bg          `(,gm/bg                "#282828"       nil            ))
+   (bg-alt      `(,gm/bg-alt            "#303030"       nil            ))
    (base0       `(,gm/base0             "black"   "black"        ))
-   (base1       `(,gm/base1             "#1e1e1e" "brightblack"  ))
+   (base1       `(,gm/base1             "#121212" "brightblack"  ))
    (base2       `(,gm/base2             "#2e2e2e" "brightblack"  ))
    (base3       `(,gm/base3             "#262626" "brightblack"  ))
    (base4       `(,gm/base4             "#3f3f3f" "brightblack"  ))
-   (base5       `(,gm/base5             "#525252" "brightblack"  ))
+   (base5       `(,gm/base5             "#585858" "brightblack"  ))
    (base6       `(,gm/base6             "#6b6b6b" "brightblack"  ))
    (base7       `(,gm/base7             "#979797" "brightblack"  ))
-   (base8       `(,gm/base8             "#dfdfdf" "white"        ))
-   (fg          `(,gm/fg                "#bfbfbf" "brightwhite"  ))
-   (fg-alt      `(,gm/fg-alt            "#2d2d2d" "white"        ))
+   (base8       `(,gm/base8             "#767676" "white"        ))
+   (fg          `(,gm/fg                "#d7d7af" "brightwhite"  ))
+   (fg-alt      `(,gm/fg-alt            "#b2b2b2" "white"        ))
 
    (grey        base8)
-   (red         `(,gm/red               "#ff6655" "red"          ))
-   (dark-red    `(,gm/dark-red          "#ff6655" "red"          ))
-   (orange      `(,gm/orange            "#dd8844" "brightred"    ))
-   (dark-orange `(,gm/dark-orange       "#dd8844" "brightred"    ))
-   (green       `(,gm/green             "#99bb66" "green"        ))
-   (dark-green  `(,gm/dark-green        "#99bb66" "green"        ))
-   (teal        `(,gm/teal              "#44b9b1" "brightgreen"  ))
-   (dark-teal   `(,gm/dark-teal         "#44b9b1" "brightgreen"  ))
-   (yellow      `(,gm/yellow            "#ECBE7B" "yellow"       ))
-   (dark-yellow `(,gm/dark-yellow       "#ECBE7B" "yellow"       ))
-   (blue        `(,gm/blue              "#51afef" "brightblue"   ))
-   (dark-blue   `(,gm/dark-blue         "#2257A0" "blue"         ))
-   (magenta     `(,gm/magenta           "#c678dd" "brightmagenta"))
+   (red         `(,gm/red               "#ea6962" "red"          ))
+   (dark-red    `(,gm/dark-red          "#ea6962" "red"          ))
+   (orange      `(,gm/orange            "#d7875f" "brightred"    ))
+   (dark-orange `(,gm/dark-orange       "#d7875f" "brightred"    ))
+   (green       `(,gm/green             "#afd700" "green"        ))
+   (dark-green  `(,gm/dark-green        "#afd700" "green"        ))
+   (teal        `(,gm/teal              "#87d7af" "brightgreen"  ))
+   (dark-teal   `(,gm/dark-teal         "#87d7af" "brightgreen"  ))
+   (yellow      `(,gm/yellow            "#d7d787" "yellow"       ))
+   (dark-yellow `(,gm/dark-yellow       "#d7d787" "yellow"       ))
+   (blue        `(,gm/blue              "#83a598" "brightblue"   ))
+   (dark-blue   `(,gm/dark-blue         "#87d7d7" "blue"         ))
+   (magenta     `(,gm/magenta           "#d3869b" "brightmagenta"))
    (violet      `(,gm/violet            "#a9a1e1" "magenta"      ))
-   (cyan        `(,gm/cyan              "#46D9FF" "brightcyan"   ))
-   (dark-cyan   `(,gm/dark-cyan         "#5699AF" "cyan"         ))
+   (cyan        `(,gm/cyan              "#87d7af" "brightcyan"   ))
+   (dark-cyan   `(,gm/dark-cyan         "#87d7af" "cyan"         ))
 
    ;; face categories -- required for all themes
    (highlight       blue)
@@ -263,19 +263,44 @@ Defaults to \"material\""
    (ivy-current-match :background blue :distant-foreground base0 :weight 'bold)
 
    ;; --- major-mode faces -------------------
+   ;; column indicator
+   (fill-column-indicator :foreground bg-alt :background bg-alt)
+
    ;; css-mode / scss-mode
    (css-proprietary-property :foreground orange)
    (css-property             :foreground green)
    (css-selector             :foreground blue)
 
+   ;; eshell
+   (+eshell-prompt-git-branch :foreground cyan)
+
+   ;; evil
+   (evil-ex-lazy-highlight :foreground bg :background yellow)
+   (evil-snipe-first-match-face :foreground bg :background orange)
+
+   ;; ivy
+   (ivy-current-match :foreground blue :background bg)
+   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
+
    ;; LaTeX-mode
    (font-latex-math-face :foreground dark-green)
    (font-latex-script-char-face :foreground dark-blue)
+
+   ;; lsp
+   (lsp-face-highlight-read :foreground fg-alt
+                            :background (doom-darken blue 0.6))
+   (lsp-face-highlight-textual :foreground fg-alt
+                               :background (doom-darken blue 0.6))
+   (lsp-face-highlight-write :foreground fg-alt
+                             :background (doom-darken blue 0.6))
 
    ;; markdown-mode
    (markdown-markup-face :foreground base5)
    (markdown-header-face :inherit 'bold :foreground red)
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
+
+   ;; magit
+   (magit-section-heading :foreground blue :weight 'bold)
 
    ;; org-mode
    (org-hide :foreground hidden)
@@ -290,21 +315,14 @@ Defaults to \"material\""
    (org-block :foreground fg :background bg-alt)
    (org-meta-line :foreground dark-cyan)
    (org-drawer :foreground dark-yellow)
-   (org-level-1 :foreground magenta :weight 'semi-bold)
-   (org-level-2 :foreground cyan :weight 'semi-bold)
-   (org-level-3 :foreground green :weight 'semi-bold)
+   (org-level-1 :foreground magenta :weight 'semi-bold :height 1.4)
+   (org-level-2 :foreground cyan :weight 'semi-bold :height 1.2)
+   (org-level-3 :foreground green :weight 'semi-bold :height 1.1)
    (org-level-4 :foreground yellow :weight 'semi-bold)
    (org-level-5 :foreground violet :weight 'semi-bold)
    (org-level-6 :foreground dark-cyan :weight 'semi-bold)
    (org-level-7 :foreground dark-green :weight 'semi-bold)
    (org-level-8 :foreground dark-yellow :weight 'semi-bold)
-
-   ;; magit
-   (magit-section-heading :foreground blue :weight 'bold)
-
-   ;; ivy
-   (ivy-current-match :foreground blue :background bg)
-   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
 
    ;; rainbow and parenthesis
    (rainbow-delimiters-depth-1-face :foreground dark-orange)
@@ -314,14 +332,11 @@ Defaults to \"material\""
    (rainbow-delimiters-unmatched-face: :foreground fg :background 'nil)
    (show-paren-match :foreground bg :background dark-red)
 
-   ;; evil
-   (evil-ex-lazy-highlight :foreground fg :background violet)
-
    ;; others
-   (isearch :foreground fg :background violet)
-
-   ;; column indicator
-   (fill-column-indicator :foreground bg-alt :background bg-alt))
+   (isearch :foreground bg :background violet)
+   (selection :foreground bg-alt :background dark-orange)
+   (company-tooltip-common-selection :foreground bg-alt :background dark-blue)
+  )
   ;; --- extra variables ---------------------
   ()
   )
