@@ -40,6 +40,10 @@ Defaults to \"material\""
   :group 'doom-gruvbox-material-theme
   :type 'string)
 
+(defcustom doom-gruvbox-material-light-dired-height 1.15
+  "Font height for dired buffers"
+  :group 'doom-gruvbox-material-theme
+  :type 'float)
 ;; colors from
 ;; https://github.com/sainnhe/gruvbox-material-vscode/tree/master/src/palette
 (cond
@@ -262,6 +266,9 @@ Defaults to \"material\""
 
    ;; ivy-mode
    (ivy-current-match :background blue :distant-foreground base0 :weight 'bold)
+   ;; (ivy-current-match :foreground blue :background bg)
+   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
+
 
    ;; --- major-mode faces -------------------
    ;; css-mode / scss-mode
@@ -269,9 +276,33 @@ Defaults to \"material\""
    (css-property             :foreground green)
    (css-selector             :foreground blue)
 
+   ;; dired
+   (diredfl-compressed-file-name :height doom-gruvbox-material-light-dired-height
+                    :foreground yellow)
+   (diredfl-dir-heading :height doom-gruvbox-material-light-dired-height
+                        :foreground teal)
+   (diredfl-dir-name :height doom-gruvbox-material-light-dired-height
+                     :foreground blue)
+   (diredfl-deletion :height doom-gruvbox-material-light-dired-height
+                     :foreground red :background (doom-lighten red 0.55))
+   (diredfl-deletion-file-name :height doom-gruvbox-material-light-dired-height
+                     :foreground red :background (doom-lighten red 0.55))
+   (diredfl-file-name :height doom-gruvbox-material-light-dired-height
+                      :foreground fg)
+   (dired-flagged :height doom-gruvbox-material-light-dired-height
+                    :foreground red :background (doom-lighten red 0.55))
+   (diredfl-symlink :height doom-gruvbox-material-light-dired-height
+                    :foreground magenta)
+   ;; evil
+   (evil-ex-lazy-highlight :foreground fg :background violet)
+   (evil-snipe-first-match-face :foreground bg :background orange)
+
    ;; LaTeX-mode
    (font-latex-math-face :foreground dark-green)
    (font-latex-script-char-face :foreground dark-blue)
+
+   ;; magit
+   (magit-section-heading :foreground blue :weight 'bold)
 
    ;; markdown-mode
    (markdown-markup-face :foreground base5)
@@ -300,13 +331,6 @@ Defaults to \"material\""
    (org-level-7 :foreground dark-green :weight 'semi-bold)
    (org-level-8 :foreground dark-yellow :weight 'semi-bold)
 
-   ;; magit
-   (magit-section-heading :foreground blue :weight 'bold)
-
-   ;; ivy
-   (ivy-current-match :foreground blue :background bg)
-   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
-
    ;; rainbow
    (rainbow-delimiters-depth-1-face :foreground dark-orange)
    (rainbow-delimiters-depth-2-face :foreground violet)
@@ -314,10 +338,6 @@ Defaults to \"material\""
    (rainbow-delimiters-depth-4-face :foreground dark-yellow)
    (rainbow-delimiters-unmatched-face: :foreground fg :background 'nil)
    (show-paren-match :foreground bg :background dark-red)
-
-   ;; evil
-   (evil-ex-lazy-highlight :foreground fg :background violet)
-   (evil-snipe-first-match-face :foreground bg :background orange)
 
    ;; others
    (isearch :foreground fg :background violet)
