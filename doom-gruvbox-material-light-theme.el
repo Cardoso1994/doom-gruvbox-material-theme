@@ -181,7 +181,8 @@ Defaults to \"material\""
    ;; (selection      dark-blue)
    (selection      grey)
    (builtin        magenta)
-   (comments       (if doom-gruvbox-material-light-brighter-comments dark-cyan base8))
+   (comments       (if doom-gruvbox-material-light-brighter-comments dark-cyan
+                     (doom-blend magenta base8 0.6)))
    (doc-comments   (doom-darken (if doom-gruvbox-material-light-brighter-comments green green) 0.15))
    (constants      magenta)
    (functions      cyan)
