@@ -287,8 +287,8 @@ Defaults to \"material\""
                      :foreground blue)
    (diredfl-deletion :height doom-gruvbox-material-light-dired-height
                      :foreground red :background (doom-lighten red 0.55))
-   (diredfl-deletion-file-name :height doom-gruvbox-material-light-dired-height
-                     :foreground red :background (doom-lighten red 0.55))
+   (diredfl-deletion-file-name :foreground red
+                               :background (doom-lighten red 0.55))
    (diredfl-file-name :height doom-gruvbox-material-light-dired-height
                       :foreground fg)
    (dired-flagged :height doom-gruvbox-material-light-dired-height
@@ -313,7 +313,9 @@ Defaults to \"material\""
    (lsp-face-highlight-textual :foreground fg-alt
                            :background (doom-lighten dark-blue 0.3))
    (lsp-face-highlight-write :foreground fg-alt
-                           :background (doom-lighten dark-blue 0.3))
+                             :background (doom-lighten dark-blue 0.3))
+   (lsp-lsp-flycheck-info-unnecessary-face
+    :foreground (doom-lighten dark-yellow 0.12))
 
    ;; magit
    (magit-section-heading :foreground blue :weight 'bold)
