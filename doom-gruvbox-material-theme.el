@@ -41,6 +41,10 @@ Defaults to \"material\""
   :group 'doom-gruvbox-material-theme
   :type 'string)
 
+(defcustom doom-gruvbox-material-dired-height 1.15
+  "Font height for dired buffers"
+  :group 'doom-gruvbox-material-theme
+  :type 'float)
 ;; colors from
 ;; https://github.com/sainnhe/gruvbox-material-vscode/tree/master/src/palette
 (cond
@@ -262,6 +266,8 @@ Defaults to \"material\""
 
    ;; ivy-mode
    (ivy-current-match :background blue :distant-foreground base0 :weight 'bold)
+   ;; (ivy-current-match :foreground blue :background bg)
+   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
 
    ;; --- major-mode faces -------------------
    ;; column indicator
@@ -272,16 +278,30 @@ Defaults to \"material\""
    (css-property             :foreground green)
    (css-selector             :foreground blue)
 
+   ;; dired
+   (diredfl-compressed-file-name :height doom-gruvbox-material-dired-height
+                    :foreground yellow)
+   (diredfl-dir-heading :height doom-gruvbox-material-dired-height
+                        :foreground teal)
+   (diredfl-dir-name :height doom-gruvbox-material-dired-height
+                     :foreground blue)
+   (diredfl-deletion :height doom-gruvbox-material-dired-height
+                     :foreground red :background (doom-darken red 0.55))
+   (diredfl-deletion-file-name :height doom-gruvbox-material-dired-height
+                     :foreground red :background (doom-darken red 0.55))
+   (diredfl-file-name :height doom-gruvbox-material-dired-height
+                      :foreground fg)
+   (dired-flagged :height doom-gruvbox-material-dired-height
+                    :foreground red :background (doom-darken red 0.55))
+   (diredfl-symlink :height doom-gruvbox-material-dired-height
+                    :foreground magenta)
+
    ;; eshell
    (+eshell-prompt-git-branch :foreground cyan)
 
    ;; evil
    (evil-ex-lazy-highlight :foreground bg :background yellow)
    (evil-snipe-first-match-face :foreground bg :background orange)
-
-   ;; ivy
-   (ivy-current-match :foreground blue :background bg)
-   (ivy-minibuffer-match-face-2 :foreground blue :background bg)
 
    ;; LaTeX-mode
    (font-latex-math-face :foreground dark-green)
@@ -295,13 +315,13 @@ Defaults to \"material\""
    (lsp-face-highlight-write :foreground fg-alt
                              :background (doom-darken blue 0.6))
 
+   ;; magit
+   (magit-section-heading :foreground blue :weight 'bold)
+
    ;; markdown-mode
    (markdown-markup-face :foreground base5)
    (markdown-header-face :inherit 'bold :foreground red)
    ((markdown-code-face &override) :background (doom-lighten base3 0.05))
-
-   ;; magit
-   (magit-section-heading :foreground blue :weight 'bold)
 
    ;; org-mode
    (org-hide :foreground hidden)
