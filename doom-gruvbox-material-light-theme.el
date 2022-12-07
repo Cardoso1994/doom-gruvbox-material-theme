@@ -190,12 +190,12 @@ Defaults to \"material\""
    (doc-comments   (doom-darken (if doom-gruvbox-material-light-brighter-comments green green) 0.15))
    (constants      magenta)
    (functions      cyan)
-   (keywords       red)
+   (keywords       (doom-darken dark-green 0.25))
    (methods        cyan)
    (operators      blue)
    (type           orange)
    (strings        green)
-   (variables      blue)
+   (variables      cyan)
    (numbers        magenta)
    (region         `(,(doom-darken (car bg-alt) 0.15) ,@(doom-darken (cdr base1) 0.35)))
    (error          red)
@@ -323,7 +323,7 @@ Defaults to \"material\""
 
    ;; markdown-mode
    (markdown-markup-face :foreground base5)
-   (markdown-header-face :inherit 'bold :foreground red)
+   (markdown-header-face :inherit 'bold :foreground blue)
    ((markdown-code-face &override) :background (doom-darken base3 0.05))
 
    ;; org-mode
@@ -355,6 +355,9 @@ Defaults to \"material\""
    (rainbow-delimiters-depth-4-face :foreground dark-yellow)
    (rainbow-delimiters-unmatched-face: :foreground fg :background 'nil)
    (show-paren-match :foreground bg :background dark-red)
+
+   ;; tree sitter
+   (tree-sitter-hl-face:method.call :foreground cyan :weight 'semi-bold)
 
    ;; others
    (isearch :foreground bg :background violet)
